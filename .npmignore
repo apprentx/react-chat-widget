@@ -2,7 +2,6 @@ yarn.lock
 mocks
 coverage
 circle.yml
-.babelrc
 .eslintrc.js
 .eslintignore
 package-lock.json
