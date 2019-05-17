@@ -1,9 +1,13 @@
-import { Map } from 'immutable';
-import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '@constants';
+import { Map } from "immutable";
+import {
+  MESSAGES_TYPES,
+  MESSAGE_SENDER,
+  MESSAGE_BOX_SCROLL_DURATION
+} from "../constants.js";
 
-import Message from '@messagesComponents/Message';
-import Snippet from '@messagesComponents/Snippet';
-import QuickButton from '@quickButtonsComponents/QuickButton';
+import Message from "../components/Widget/components/Conversation/components/Messages/components/Message";
+import Snippet from "../components/Widget/components/Conversation/components/Messages/components/Snippet";
+import QuickButton from "../components/Widget/components/Conversation/components/QuickButtons/components/QuickButton";
 
 export function createNewMessage(text, sender) {
   return Map({
@@ -21,7 +25,7 @@ export function createLinkSnippet(link) {
     component: Snippet,
     title: link.title,
     link: link.link,
-    target: link.target || '_blank',
+    target: link.target || "_blank",
     sender: MESSAGE_SENDER.RESPONSE,
     showAvatar: true
   });
@@ -49,26 +53,32 @@ function sinEaseOut(t, b, c, d) {
 }
 
 /**
- * 
+ *
  * @param {*} target scroll target
  * @param {*} scrollStart
  * @param {*} scroll scroll distance
  */
 function scrollWithSlowMotion(target, scrollStart, scroll) {
-  const raf = window.webkitRequestAnimationFrame || window.requestAnimationFrame
-  let start = null
-  const step = (timestamp) => {
+  const raf =
+    window.webkitRequestAnimationFrame || window.requestAnimationFrame;
+  let start = null;
+  const step = timestamp => {
     if (!start) {
-      start = timestamp
+      start = timestamp;
     }
-    let stepScroll = sinEaseOut(timestamp - start, 0, scroll, MESSAGE_BOX_SCROLL_DURATION)
-    let total = scrollStart + stepScroll
+    let stepScroll = sinEaseOut(
+      timestamp - start,
+      0,
+      scroll,
+      MESSAGE_BOX_SCROLL_DURATION
+    );
+    let total = scrollStart + stepScroll;
     target.scrollTop = total;
     if (total < scrollStart + scroll) {
-      raf(step)
+      raf(step);
     }
-  }
-  raf(step)
+  };
+  raf(step);
 }
 
 export function scrollToBottom(messagesDiv) {
@@ -76,11 +86,10 @@ export function scrollToBottom(messagesDiv) {
   const screenHeight = messagesDiv.clientHeight;
   const scrollTop = messagesDiv.scrollTop;
 
-  const scrollOffset = messagesDiv.scrollHeight - (scrollTop + screenHeight)
+  const scrollOffset = messagesDiv.scrollHeight - (scrollTop + screenHeight);
 
   scrollOffset && scrollWithSlowMotion(messagesDiv, scrollTop, scrollOffset);
 }
-
 
 export function createQuickButton(button) {
   return Map({
