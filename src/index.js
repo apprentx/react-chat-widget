@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Provider } from 'react-redux';
+import React from "react";
+import PropTypes from "prop-types";
+import { Provider } from "react-redux";
 
-import Widget from './components/Widget';
-import store from '../src/store/store';
+import Widget from "./components/Widget";
+import store from "../src/store/store";
 
-const ConnectedWidget = props =>
+const ConnectedWidget = props => (
   <Provider store={store}>
     <Widget
       title={props.title}
@@ -20,8 +20,10 @@ const ConnectedWidget = props =>
       badge={props.badge}
       autofocus={props.autofocus}
       customLauncher={props.launcher}
+      menuItems={props.menuItems}
     />
-  </Provider>;
+  </Provider>
+);
 
 ConnectedWidget.propTypes = {
   title: PropTypes.string,
@@ -39,9 +41,9 @@ ConnectedWidget.propTypes = {
 };
 
 ConnectedWidget.defaultProps = {
-  title: 'Welcome',
-  subtitle: 'This is your chat subtitle',
-  senderPlaceHolder: 'Type a message...',
+  title: "Welcome",
+  subtitle: "This is your chat subtitle",
+  senderPlaceHolder: "Type a message...",
   showCloseButton: true,
   fullScreenMode: false,
   badge: 0,
