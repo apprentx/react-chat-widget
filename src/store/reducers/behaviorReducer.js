@@ -14,8 +14,12 @@ const behaviorReducer = {
   [actionTypes.TOGGLE_CHAT]: state =>
     state.update("showChat", showChat => !showChat),
 
-  [actionTypes.TOGGLE_INPUT_DISABLED]: state =>
-    state.update("disabledInput", disabledInput => !disabledInput),
+  [actionTypes.TOGGLE_INPUT_DISABLED]: (state, data) => {
+    if (typeof data.inputDisabler === "undefined") {
+      return state.update("disabledInput", disabledInput => !disabledInput);
+    }
+    return state.update("disabledInput", disabledInput => data.inputDisabler);
+  },
 
   [actionTypes.TOGGLE_MSG_LOADER]: (state, data) => {
     if (typeof data.showMsgLoader === "undefined") {

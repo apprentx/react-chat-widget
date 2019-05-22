@@ -6,9 +6,10 @@ export function toggleChat() {
   };
 }
 
-export function toggleInputDisabled() {
+export function toggleInputDisabled(inputDisabler) {
   return {
-    type: actions.TOGGLE_INPUT_DISABLED
+    type: actions.TOGGLE_INPUT_DISABLED,
+    inputDisabler
   };
 }
 

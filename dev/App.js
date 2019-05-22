@@ -3,7 +3,8 @@ import {
   Widget,
   addResponseMessage,
   setQuickButtons,
-  toggleMsgLoader
+  toggleMsgLoader,
+  toggleInputDisabled
 } from "../index";
 
 export default class App extends Component {

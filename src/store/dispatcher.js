@@ -25,8 +25,8 @@ export function toggleWidget() {
   store.dispatch(actions.toggleChat());
 }
 
-export function toggleInputDisabled() {
-  store.dispatch(actions.toggleInputDisabled());
+export function toggleInputDisabled(inputDisabler) {
+  store.dispatch(actions.toggleInputDisabled(inputDisabler));
 }
 
 export function dropMessages() {
