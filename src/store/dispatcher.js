@@ -1,5 +1,5 @@
-import store from './store';
-import * as actions from './actions';
+import store from "./store";
+import * as actions from "./actions";
 
 export function addUserMessage(text) {
   store.dispatch(actions.addUserMessage(text));
@@ -13,8 +13,8 @@ export function addLinkSnippet(link) {
   store.dispatch(actions.addLinkSnippet(link));
 }
 
-export function toggleMsgLoader() {
-  store.dispatch(actions.toggleMsgLoader());
+export function toggleMsgLoader(showMsgLoader) {
+  store.dispatch(actions.toggleMsgLoader(showMsgLoader));
 }
 
 export function renderCustomComponent(component, props, showAvatar = false) {
@@ -34,7 +34,7 @@ export function dropMessages() {
 }
 
 export function isWidgetOpened() {
-  return store.getState().behavior.get('showChat');
+  return store.getState().behavior.get("showChat");
 }
 
 export function setQuickButtons(buttons) {
