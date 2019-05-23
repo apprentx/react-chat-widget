@@ -38,7 +38,6 @@ export default class App extends Component {
     return (
       <Widget
         title="Bienvenido"
-        subtitle="Asistente virtual"
         senderPlaceHolder="Escribe aquí ..."
         handleNewUserMessage={this.handleNewUserMessage}
         handleQuickButtonClicked={this.handleQuickButtonClicked}

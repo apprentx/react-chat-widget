@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import Popup from "reactjs-popup";
 
 import close from "../../../../../../../assets/clear-button.svg";
-import tools from "../../../../../../../assets/tools.svg";
+import tools from "../../../../../../../assets/iconfinder-icon.svg";
+import exit from "../../../../../../../assets/iconfinder_button_close_352915.svg";
 
 import "./style.scss";
 
@@ -32,8 +33,8 @@ class Header extends PureComponent {
       <div className="rcw-header">
         {console.log("showCloseButton", showCloseButton)}
         {showCloseButton && (
-          <button className="rcw-close-button" onClick={toggleChat}>
-            <img src={close} className="rcw-close" alt="close" />
+          <button className="rcw-exit-button" onClick={toggleChat}>
+            <img src={exit} className="rcw-exit" alt="exit" />
           </button>
         )}
         <h4 className="rcw-title">
@@ -52,7 +53,7 @@ class Header extends PureComponent {
                     <img src={tools} className="rcw-tools" alt="tools" />
                   </button>
                 }
-                position="left top"
+                position="right top"
               >
                 {menuItems.map(item => (
                   <div
