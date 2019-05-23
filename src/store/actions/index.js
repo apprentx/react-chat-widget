@@ -1,4 +1,4 @@
-import * as actions from './actionTypes';
+import * as actions from "./actionTypes";
 
 export function toggleChat() {
   return {
@@ -6,9 +6,10 @@ export function toggleChat() {
   };
 }
 
-export function toggleInputDisabled() {
+export function toggleInputDisabled(inputDisabler) {
   return {
-    type: actions.TOGGLE_INPUT_DISABLED
+    type: actions.TOGGLE_INPUT_DISABLED,
+    inputDisabler
   };
 }
 
@@ -26,10 +27,11 @@ export function addResponseMessage(text) {
   };
 }
 
-export function toggleMsgLoader() {
+export function toggleMsgLoader(showMsgLoader) {
   return {
-    type: actions.TOGGLE_MSG_LOADER
-  }
+    type: actions.TOGGLE_MSG_LOADER,
+    showMsgLoader
+  };
 }
 
 export function addLinkSnippet(link) {
@@ -64,5 +66,5 @@ export function setQuickButtons(buttons) {
   return {
     type: actions.SET_QUICK_BUTTONS,
     buttons
-  }
+  };
 }

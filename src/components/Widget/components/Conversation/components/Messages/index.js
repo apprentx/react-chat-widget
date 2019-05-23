@@ -64,6 +64,7 @@ Messages.propTypes = {
 };
 
 export default connect(store => ({
+  store,
   messages: store.messages,
   typing: store.behavior.get("msgLoader")
 }))(Messages);
