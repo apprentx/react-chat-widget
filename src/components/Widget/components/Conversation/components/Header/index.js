@@ -32,11 +32,7 @@ class Header extends PureComponent {
     return (
       <div className="rcw-header">
         {console.log("showCloseButton", showCloseButton)}
-        {showCloseButton && (
-          <button className="rcw-exit-button" onClick={toggleChat}>
-            <img src={exit} className="rcw-exit" alt="exit" />
-          </button>
-        )}
+
         <h4 className="rcw-title">
           {titleAvatar && (
             <img src={titleAvatar} className="avatar" alt="profile" />
